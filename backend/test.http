@@ -1,0 +1,9 @@
+GET http://localhost:8080/api/projects
+Content-Type: application/json
+
+{
+  "name": "Study Algorithms Final",
+  "estimatedPomodoros": 10,
+  "actualPomodoros": 1,
+  "totalTimeSpent": 25
+}
