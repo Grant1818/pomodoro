@@ -1,0 +1,7 @@
+.home-page {
+  min-height: 100vh;
+  background-color: #40464c;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}

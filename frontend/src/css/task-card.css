@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+.task-card {
+  width: min(572px, 100%);
+  background: #505860;
+  border-radius: 16px;
+  padding: 15px 26px 26px;
+  color: #f4f6f8;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+  text-align: left;
+}
+
+.task-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #186ecf;
+  padding-bottom: 11px;
+}
+
+.task-card__title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+.task-card__menu-button {
+  appearance: none;
+  border: none;
+  border-radius: 10px;
+  width: 37px;
+  height: 37px;
+  background: #505860;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.task-card__menu-button span {
+  width: 15px;
+  height: 1px;
+  border-radius: 1px;
+  background: #186ecf;
+}
+
+.task-card__menu-button:hover {
+  background: #596168;
+}
+
+.task-card__button {
+  appearance: none;
+  border: none;
+  border-radius: 10px;
+  padding: 25px 0;
+  width: 100%;
+  background: #505860;
+  color: #949494;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.18);
+  display: block;
+  margin: 18px auto 0;
+}
+
+.task-card__button:hover {
+  background: #596168;
+}
