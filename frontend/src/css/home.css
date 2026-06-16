@@ -5,3 +5,7 @@
   place-items: center;
   padding: 24px;
 }
+
+.home-page__content {
+  width: min(572px, 100%);
+}
