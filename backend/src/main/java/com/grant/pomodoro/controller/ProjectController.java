@@ -57,6 +57,12 @@ public class ProjectController
         projectRepository.deleteById(id); // deletes the project with the specified id from the database
     }
 
+    @DeleteMapping // handles DELETE requests to /api/projects
+    public void deleteAllProjects()
+    {
+        projectRepository.deleteAll(); // deletes all projects from the database
+    }
+
     @PutMapping("/{id}") // handles PUT requests to /api/projects/{id}
     public Project updateProject(@PathVariable Long id, @RequestBody Project updatedProject)
     {

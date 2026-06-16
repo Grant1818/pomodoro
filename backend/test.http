@@ -1,9 +1,107 @@
+### Health
+GET http://localhost:8080/api/hello
+
+### Projects - list
 GET http://localhost:8080/api/projects
+
+### Projects - create
+POST http://localhost:8080/api/projects
 Content-Type: application/json
 
 {
   "name": "Study Algorithms Final",
   "estimatedPomodoros": 10,
-  "actualPomodoros": 1,
-  "totalTimeSpent": 25
+  "actualPomodoros": 0,
+  "totalTimeSpent": 0
 }
+
+### Projects - get by id
+GET http://localhost:8080/api/projects/1
+
+### Projects - update
+PUT http://localhost:8080/api/projects/1
+Content-Type: application/json
+
+{
+  "name": "Study Algorithms Final v2",
+  "estimatedPomodoros": 12,
+  "actualPomodoros": 0,
+  "totalTimeSpent": 0
+}
+
+### Projects - complete pomodoro
+PUT http://localhost:8080/api/projects/1/completePomodoro
+
+### Projects - delete by id
+DELETE http://localhost:8080/api/projects/1
+
+### Projects - delete all
+DELETE http://localhost:8080/api/projects
+
+### Sessions - list
+GET http://localhost:8080/api/sessions
+
+### Sessions - list by project
+GET http://localhost:8080/api/sessions?projectId=1
+
+### Sessions - create
+POST http://localhost:8080/api/sessions
+Content-Type: application/json
+
+{
+  "project": { "id": 1 },
+  "durationMinutes": 25,
+  "status": "COMPLETED"
+}
+
+### Sessions - get by id
+GET http://localhost:8080/api/sessions/1
+
+### Sessions - update
+PUT http://localhost:8080/api/sessions/1
+Content-Type: application/json
+
+{
+  "project": { "id": 1 },
+  "durationMinutes": 30,
+  "status": "INTERRUPTED"
+}
+
+### Sessions - delete
+DELETE http://localhost:8080/api/sessions/1
+
+### Timers - list
+GET http://localhost:8080/api/timers
+
+### Timers - list by project
+GET http://localhost:8080/api/timers?projectId=1
+
+### Timers - create
+POST http://localhost:8080/api/timers
+Content-Type: application/json
+
+{
+  "project": { "id": 1 },
+  "workDurationMinutes": 25,
+  "breakDurationMinutes": 5,
+  "remainingSeconds": 0,
+  "running": false
+}
+
+### Timers - get by id
+GET http://localhost:8080/api/timers/1
+
+### Timers - update
+PUT http://localhost:8080/api/timers/1
+Content-Type: application/json
+
+{
+  "project": { "id": 1 },
+  "workDurationMinutes": 30,
+  "breakDurationMinutes": 10,
+  "remainingSeconds": 900,
+  "running": true
+}
+
+### Timers - delete
+DELETE http://localhost:8080/api/timers/1
