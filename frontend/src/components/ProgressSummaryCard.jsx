@@ -12,8 +12,7 @@ function formatClockTime(date) {
 function ProgressSummaryCard({
   completionPercentage,
   remainingMinutes,
-  pauseExtensionMinutes = 0,
-  isTimerPaused = false,
+  isTimerPaused = true,
 }) {
   const [now, setNow] = useState(new Date())
 
@@ -27,20 +26,14 @@ function ProgressSummaryCard({
     }
   }, [])
 
-  const effectiveRemainingMinutes = useMemo(() => {
-    const baseRemaining = Math.max(0, remainingMinutes)
-    const pauseDelay = isTimerPaused ? Math.max(0, pauseExtensionMinutes) : 0
-    return baseRemaining + pauseDelay
-  }, [remainingMinutes, isTimerPaused, pauseExtensionMinutes])
-
   const estimatedDoneLabel = useMemo(() => {
-    if (effectiveRemainingMinutes === 0) {
+    if (remainingMinutes === 0) {
       return 'Now'
     }
 
-    const estimatedDoneTime = new Date(now.getTime() + effectiveRemainingMinutes * 60000)
+    const estimatedDoneTime = new Date(now.getTime() + remainingMinutes * 60000)
     return formatClockTime(estimatedDoneTime)
-  }, [now, effectiveRemainingMinutes])
+  }, [now, remainingMinutes])
 
   return (
     <section className="progress-summary-card" aria-label="Progress summary">

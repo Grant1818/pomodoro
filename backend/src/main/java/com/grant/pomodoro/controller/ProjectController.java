@@ -42,11 +42,18 @@ public class ProjectController
         // Get the current actualPomodoros value,
         // add 1 because a Pomodoro session was completed,
         // then save the new value into the object.
-        project.setActualPomodoros(project.getActualPomodoros() + 1);
+        boolean canIncrementPomodoro = project.getActualPomodoros() < project.getEstimatedPomodoros();
+        int nextActualPomodoros = Math.min(
+            project.getEstimatedPomodoros(),
+            project.getActualPomodoros() + 1
+        );
+        project.setActualPomodoros(nextActualPomodoros);
         // Get the current totalTimeSpent value,
         // add 25 minutes because one Pomodoro was completed,
         // then save the new value into the object.
-        project.setTotalTimeSpent(project.getTotalTimeSpent() + 25);
+        if (canIncrementPomodoro) {
+            project.setTotalTimeSpent(project.getTotalTimeSpent() + 25);
+        }
         //save the updated project back to the database and return the updated project as json
         return projectRepository.save(project);
     }
@@ -73,6 +80,8 @@ public class ProjectController
         // with the values from the updatedProject object sent in the request body.
         project.setName(updatedProject.getName());
         project.setEstimatedPomodoros(updatedProject.getEstimatedPomodoros());
+        project.setActualPomodoros(updatedProject.getActualPomodoros());
+        project.setTotalTimeSpent(updatedProject.getTotalTimeSpent());
         return projectRepository.save(project);
     }
 

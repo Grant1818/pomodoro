@@ -1,0 +1,331 @@
+.timer-card {
+  width: min(572px, 100%);
+  margin-bottom: 14px;
+  padding: 32px 26px;
+  border-radius: 16px;
+  background: #505860;
+  color: #f4f6f8;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+}
+
+.timer-card__display {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-card__circle-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: none;
+
+}
+
+.timer-card__circle-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: none;
+  stroke: #186ecf;
+  stroke-width: 14;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform: rotate(-90deg);
+  transform-origin: 120px 120px;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.timer-card__time {
+  position: relative;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: #f4f6f8;
+  letter-spacing: -0.02em;
+}
+
+.timer-card__task-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.timer-card__top-left,
+.timer-card__top-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timer-card__mode-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #f4f6f8;
+  background: #186ecf;
+  border-radius: 6px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+.timer-card__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.timer-card__error {
+  margin: -8px 0 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7dc4ff;
+}
+
+.timer-card__ringtone-toggle {
+  appearance: none;
+  border: none;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  color: #dce4ea;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.timer-card__ringtone-toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.timer-card__ringtone-icon {
+  width: 19px;
+  height: 19px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.timer-card__ringtone-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #dce4ea;
+}
+
+.timer-card__settings-button {
+  appearance: none;
+  border: none;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  color: #dce4ea;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.timer-card__settings-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.timer-card__settings-icon {
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.35));
+}
+
+.timer-settings {
+  position: absolute;
+  top: 64px;
+  right: 26px;
+  width: min(300px, calc(100% - 52px));
+  background: #40464c;
+  border-radius: 12px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+  padding: 14px;
+  z-index: 40;
+}
+
+.timer-settings__label {
+  margin: 0 0 2px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  color: #d4dde5;
+  text-align: left;
+}
+
+.timer-settings__row {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.timer-settings__input {
+  width: 100%;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background: #505860;
+  color: #f4f6f8;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  padding: 0 12px;
+  box-sizing: border-box;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.timer-settings__input:focus,
+.timer-settings__input:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.timer-settings__input[readonly] {
+  cursor: default;
+}
+
+.timer-settings__stepper {
+  display: flex;
+  gap: 6px;
+}
+
+.timer-settings__stepper-button {
+  appearance: none;
+  border: none;
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  background: #505860;
+  color: #186ecf;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.timer-settings__stepper-button:hover {
+  background: #596168;
+}
+
+.timer-settings__error {
+  margin: 2px 0 10px;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  color: #7dc4ff;
+}
+
+.timer-settings__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.timer-settings__cancel,
+.timer-settings__save {
+  appearance: none;
+  border: none;
+  border-radius: 10px;
+  min-width: 90px;
+  padding: 10px 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.timer-settings__cancel {
+  background: #505860;
+  color: #d2dae1;
+}
+
+.timer-settings__save {
+  background: #186ecf;
+  color: #f4f6f8;
+}
+
+/* All three control buttons are the same size so they line up perfectly */
+.timer-card__control-button {
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Inactive play or pause: still visible but clearly dimmed */
+.timer-card__control-button--inactive {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.timer-card__control-image {
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) invert(1) drop-shadow(0 0 2px rgba(0, 0, 0, 0.22));
+  transition: filter 0.2s ease;
+}
+
+.timer-card__control-button:not(.timer-card__control-button--inactive):hover .timer-card__control-image {
+  filter: brightness(0) invert(1) drop-shadow(0 0 3px rgba(0, 0, 0, 0.28));
+}
+
+@media (max-width: 640px) {
+  .timer-card {
+    padding: 24px 20px;
+  }
+
+  .timer-card__time {
+    font-size: 36px;
+  }
+
+  .timer-card__control-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .timer-card__control-button--play-pause {
+    width: 52px;
+    height: 52px;
+  }
+
+  .timer-settings {
+    width: calc(100% - 40px);
+    right: 20px;
+    top: 56px;
+  }
+}
