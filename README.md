@@ -14,23 +14,11 @@ A full-stack productivity application that combines the Pomodoro Technique with 
 
 ---
 
-## Project Structure
+## Local Setup
 
-```
-pomodoro/
-├── frontend/          # React + Vite SPA
-│   └── src/
-│       ├── components/    # TimerCard, TaskCard, ProgressSummaryCard
-│       ├── pages/         # home.jsx
-│       └── App.jsx
-└── backend/           # Spring Boot REST API
-    └── src/main/java/com/grant/pomodoro/
-        ├── controller/    # ProjectController, TimerController, SessionController
-        ├── model/         # Project, Timer, Session
-        └── repository/    # JPA repositories
-```
+- Put your backend database values in [backend/.env.example](backend/.env.example) and copy them to [backend/.env](backend/.env) for local development.
+- The backend loads [backend/.env](backend/.env) at startup and falls back to defaults from [backend/src/main/resources/application.properties](backend/src/main/resources/application.properties).
 
----
 
 ## Features
 
@@ -41,40 +29,4 @@ pomodoro/
 - **Progress summary** — Visual summary card showing productivity metrics
 
 ---
-
-## REST API
-
-Base URL: `http://localhost:8080`
-
-### Projects — `/api/projects`
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/projects` | List all projects |
-| POST | `/api/projects` | Create a project |
-| GET | `/api/projects/{id}` | Get project by ID |
-| PUT | `/api/projects/{id}` | Update project |
-| PUT | `/api/projects/{id}/completePomodoro` | Mark one Pomodoro complete (+25 min) |
-| DELETE | `/api/projects/{id}` | Delete project |
-| DELETE | `/api/projects` | Delete all projects |
-
-### Timers — `/api/timers`
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/timers?projectId=` | List timers (optionally filter by project) |
-| POST | `/api/timers` | Create a timer for a project |
-| GET | `/api/timers/{id}` | Get timer by ID |
-| PUT | `/api/timers/{id}` | Update timer state |
-| DELETE | `/api/timers/{id}` | Delete timer |
-
-### Sessions — `/api/sessions`
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/sessions?projectId=` | List sessions (optionally filter by project) |
-| POST | `/api/sessions` | Log a new session |
-| GET | `/api/sessions/{id}` | Get session by ID |
-| PUT | `/api/sessions/{id}` | Update session |
-| DELETE | `/api/sessions/{id}` | Delete session |
 
