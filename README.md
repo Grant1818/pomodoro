@@ -14,11 +14,6 @@ A full-stack productivity application that combines the Pomodoro Technique with 
 
 ---
 
-## Local Setup
-
-- Put your backend database values in [backend/.env.example](backend/.env.example) and copy them to [backend/.env](backend/.env) for local development.
-- The backend loads [backend/.env](backend/.env) at startup and falls back to defaults from [backend/src/main/resources/application.properties](backend/src/main/resources/application.properties).
-
 
 ## Features
 
