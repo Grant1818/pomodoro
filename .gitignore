@@ -2,4 +2,5 @@ target/
 .idea/
 .vscode/
 .env
+compose.override.yml
 .DS_Store
