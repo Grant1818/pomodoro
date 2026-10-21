@@ -1,0 +1,33 @@
+name: Deployment
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+concurrency:
+  group: pomodoro-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync code to server directory
+        run: |
+          rsync -a \
+            --exclude ".env" \
+            --exclude "docker-compose.override.yml" \
+            --exclude ".git/" \
+            --exclude ".github/" \
+            --exclude "target/" \
+            --exclude "node_modules/" \
+            ./ /home/grant/pomodoro/
+
+      - name: Build and restart containers
+        working-directory: /home/grant/pomodoro
+        run: |
+          docker compose up -d --build
+          docker image prune -f
